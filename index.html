@@ -6,22 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0-beta.2.rc.2/leaflet.css">
-	<link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css">
-
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0-beta.2.rc.2/leaflet.js"></script>
-	<script src="https://raw.githubusercontent.com/mapbox/mapbox-gl-leaflet/master/leaflet-mapbox-gl.js"></script>
-	<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js"></script>
-
-
-	<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
 	<link rel="stylesheet" href="http://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.css" />
 	<link rel="stylesheet" href="http://unpkg.com/leaflet-gesture-handling@1.2.1/dist/leaflet-gesture-handling.min.css" type="text/css">
 
 	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
 	<script src="https://unpkg.com/leaflet-gesture-handling@1.2.1/dist/leaflet-gesture-handling.min.js"></script>
 	<script src="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.js"></script>
-	<script src="https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js"></script> -->
+	<script src="https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js"></script>
 
 	<script src="dist/lazyloadscripts.min.js" type="text/javascript"></script>
 	<!-- <script src="src/lazyloadscripts.js" type="text/javascript"></script> -->
@@ -29,24 +21,6 @@
 	<script>
 		window.addEventListener('load', function()
 		{
-			var map = L.map('map').setView([38.912753, -77.032194], 15);
-L.marker([38.912753, -77.032194])
-    .bindPopup("Hello <b>Leaflet GL</b>!<br>Whoa, it works!")
-    .addTo(map)
-    .openPopup();
-
-L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(map);
-
-var gl = L.mapboxGL({
-    accessToken: "pk.eyJ1IjoiZm5pY29sbGV0IiwiYSI6Ilkxd1ItT1UifQ.emTQ9Yi7B49E8xIAMnZGOA",
-    style: 'mapbox://styles/mapbox/bright-v8'
-}).addTo(map);
-
-L.control.layers({gl: gl, tiles: tiles}).addTo(map);
-
-
 			// var map = new lazyLoadScripts('[data-osm-map]', {
 			// 	offset: 2000,
 			// 	onWatch: el => {
