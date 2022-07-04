@@ -101,14 +101,16 @@ class lazyLoadScripts
 		if (window.getComputedStyle(elem).visibility === 'hidden')
 			return
 
-		const distance = elem.getBoundingClientRect()
+		const rect      = elem.getBoundingClientRect()
+		    , winWidth  = window.innerWidth || document.documentElement.clientWidth
+		    , winHeight = window.innerHeight || document.documentElement.clientHeight
+		    , elHeight  = elem.offsetHeight
+		    , elWidth   = elem.offsetWidth
 
-		return (
-			distance.top >= 0 &&
-			distance.left >= 0 &&
-			distance.bottom - this.opts.offset <= (window.innerHeight || document.documentElement.clientHeight) &&
-			distance.right <= (window.innerWidth || document.documentElement.clientWidth)
-		)
+		return rect.top >= -elHeight
+			&& rect.left >= -elWidth
+			&& rect.right <= winWidth + elWidth
+			&& rect.bottom - this.opts.offset <= winHeight + elHeight
 	}
 
 	/**
