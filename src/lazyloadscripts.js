@@ -90,19 +90,25 @@ class lazyLoadScripts
 		})
 	}
 
+	/**
+	 * @see https://vanillajstoolkit.com/helpers/isinviewport/
+	 *
+	 * @param {HTMLElement} elem
+	 * @returns
+	 */
 	isInViewport(elem)
 	{
 		if (window.getComputedStyle(elem).visibility === 'hidden')
 			return
 
-		const rect           = elem.getBoundingClientRect()
-		    , scrollTop      = window.scrollY
-		    , documentBottom = scrollTop + window.outerHeight
-		    , elOffsetTop    = rect.top + document.body.scrollTop
-		    , elBottom       = elOffsetTop + elem.offsetHeight
+		const distance = elem.getBoundingClientRect()
 
-		return elBottom >= scrollTop - this.opts.offset
-			&& elOffsetTop <= documentBottom + this.opts.offset
+		return (
+			distance.top >= 0 &&
+			distance.left >= 0 &&
+			distance.bottom - this.opts.offset <= (window.innerHeight || document.documentElement.clientHeight) &&
+			distance.right <= (window.innerWidth || document.documentElement.clientWidth)
+		)
 	}
 
 	/**

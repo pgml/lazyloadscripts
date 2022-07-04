@@ -6,14 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+	<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
 	<link rel="stylesheet" href="http://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.css" />
 	<link rel="stylesheet" href="http://unpkg.com/leaflet-gesture-handling@1.2.1/dist/leaflet-gesture-handling.min.css" type="text/css">
 
 	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
 	<script src="https://unpkg.com/leaflet-gesture-handling@1.2.1/dist/leaflet-gesture-handling.min.js"></script>
 	<script src="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.js"></script>
-	<script src="https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js"></script>
+	<script src="https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js"></script> -->
 
 	<script src="dist/lazyloadscripts.min.js" type="text/javascript"></script>
 	<!-- <script src="src/lazyloadscripts.js" type="text/javascript"></script> -->
@@ -21,63 +21,63 @@
 	<script>
 		window.addEventListener('load', function()
 		{
-			// var map = new lazyLoadScripts('[data-osm-map]', {
-			// 	offset: 2000,
-			// 	onWatch: el => {
-			// 		if (el)
-			// 			console.log('osm: Loading main-script', el[0].scriptSrc)
-			// 	},
-			// 	onSuccess: (status, file, type) => {
-			// 		console.log('osm: Map-' + type + ' loaded: ', status)
+			var map = new lazyLoadScripts('[data-osm-map]', {
+				offset: 200,
+				onWatch: el => {
+					if (el)
+						console.log('osm: Loading main-script', el[0].scriptSrc)
+				},
+				onSuccess: (status, file, type) => {
+					console.log('osm: Map-' + type + ' loaded: ', status)
 
-			// 		new lazyLoadScripts('[data-osm-plugins]', {
-			// 			offset: 0,
-			// 			onWatch: el => {
-			// 				if (el) {
-			// 					const script_src = el[0].scriptSrc
-			// 					for (const index in script_src)
-			// 						console.log('osm: LoadPlugin', index, script_src[index])
-			// 				}
-			// 			},
-			// 			onSuccess: status => {
-			// 				console.log('osm: plugin loaded: ', status)
-			// 			},
-			// 			onAllDone: async appendJS => {
-			// 				console.log('osm: AllDone')
-			// 				const leaflet = 'https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js'
-			// 				/** this plugin must be loaded after 'mapbox-gl.js' */
-			// 				// console.log('asd')
-			// 				// const status = await appendJS(leaflet)
+					// new lazyLoadScripts('[data-osm-plugins]', {
+					// 	offset: 0,
+					// 	onWatch: el => {
+					// 		if (el) {
+					// 			const script_src = el[0].scriptSrc
+					// 			for (const index in script_src)
+					// 				console.log('osm: LoadPlugin', index, script_src[index])
+					// 		}
+					// 	},
+					// 	onSuccess: status => {
+					// 		console.log('osm: plugin loaded: ', status)
+					// 	},
+					// 	onAllDone: async appendJS => {
+					// 		console.log('osm: AllDone')
+					// 		const leaflet = 'https://cdn.maptiler.com/mapbox-gl-leaflet/latest/leaflet-mapbox-gl.js'
+					// 		/** this plugin must be loaded after 'mapbox-gl.js' */
+					// 		// console.log('asd')
+					// 		// const status = await appendJS(leaflet)
 
-			// 				console.log('osm: Loaded: leaflet-mapbox-gl.js', status)
+					// 		console.log('osm: Loaded: leaflet-mapbox-gl.js', status)
 
-			// 				if (!L)
-			// 					return false
+					// 		if (!L)
+					// 			return false
 
-			// 				const map  = document.querySelectorAll('[data-osm-map]')[0]
-			// 						, lmap = L.map(map)
+					// 		const map  = document.querySelectorAll('[data-osm-map]')[0]
+					// 				, lmap = L.map(map)
 
-			// 				lmap.setView([38.912753, -77.032194], 15)
+					// 		lmap.setView([38.912753, -77.032194], 15)
 
-			// 				L.marker([38.912753, -77.032194])
-			// 					.bindPopup("Hello <b>Leaflet GL</b>!<br>Whoa, it works!")
-			// 					.addTo(lmap)
-			// 					.openPopup();
+					// 		L.marker([38.912753, -77.032194])
+					// 			.bindPopup("Hello <b>Leaflet GL</b>!<br>Whoa, it works!")
+					// 			.addTo(lmap)
+					// 			.openPopup();
 
-			// 				L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-			// 						attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-			// 				}).addTo(lmap);
+					// 		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+					// 				attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+					// 		}).addTo(lmap);
 
-			// 				var gl = L.mapboxGL({
-			// 						accessToken: "pk.eyJ1IjoiZm5pY29sbGV0IiwiYSI6Ilkxd1ItT1UifQ.emTQ9Yi7B49E8xIAMnZGOA",
-			// 						style: 'mapbox://styles/mapbox/bright-v8'
-			// 				}).addTo(lmap)
+					// 		var gl = L.mapboxGL({
+					// 				accessToken: "pk.eyJ1IjoiZm5pY29sbGV0IiwiYSI6Ilkxd1ItT1UifQ.emTQ9Yi7B49E8xIAMnZGOA",
+					// 				style: 'mapbox://styles/mapbox/bright-v8'
+					// 		}).addTo(lmap)
 
-			// 				L.control.layers({gl: gl, tiles: tiles}).addTo(lmap)
-			// 			},
-			// 		})
-			// 	},
-			// })
+					// 		L.control.layers({gl: gl, tiles: tiles}).addTo(lmap)
+					// 	},
+					// })
+				},
+			})
 			// const lmap = L.map(document.querySelectorAll('[data-osm-map]')[0])
 		})
 
@@ -85,23 +85,29 @@
 
 	<style>
 		div {
-			margin-top: 4000px;
+			border: 1px solid black;
+			min-height: 20px;
+			width: 99%;
+		}
+		.spacer {
+			height: 4000px;
 		}
 	</style>
 </head>
 <body>
-	<div id="map"></div>
-	<div
-		style='width:0; height:0'
+	<div class="spacer"></div>
+	<!-- <div
+		style="width:0; height:0"
 		data-osm-plugins
 		data-lazy-load-scripts='["https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.js", "https://unpkg.com/leaflet-gesture-handling@1.2.1/dist/leaflet-gesture-handling.min.js"]'
-	></div>
+	></div> -->
 	<div
 		class="osm-map"
 		data-osm-map="auto"
 		data-lazy-load-scripts='https://unpkg.com/leaflet@1.5.1/dist/leaflet.js'
 		data-lazy-load-css='["https://unpkg.com/leaflet@1.5.1/dist/leaflet.css", "http://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.css", "http://unpkg.com/leaflet-gesture-handling@1.2.1/dist/leaflet-gesture-handling.min.css"]'
 		data-lat="53.555305" data-lng="10.014814" data-zoom="15"
-	></div>
+	>Map</div>
+	<div class="spacer"></div>
 </body>
 </html>
