@@ -84,8 +84,11 @@ class lazyLoadScripts
 
 			if (scripts)
 			{
-				const asdasd = Promise.all(scripts)
-					.then(this.opts.onAllDone(this.appendJS))
+				// Fake it until you make it
+				setTimeout(() => {
+					Promise.all(scripts)
+						.then(this.opts.onAllDone(this.appendJS))
+				}, 100)
 			}
 		})
 	}
