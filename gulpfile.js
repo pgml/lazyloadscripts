@@ -42,7 +42,6 @@ var babel_settings = {
  * Build JS files
  */
 gulp.task('build-js', function() {
-	// First concat all js files together and compile babel
 	var stream = gulp
 		.src(src_js_file)
 		.pipe(plumber({ plumber_handle_err }))
