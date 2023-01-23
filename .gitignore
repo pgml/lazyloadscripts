@@ -7,3 +7,6 @@ npm-debug.log*
 node_modules/
 
 .vscode/
+
+.idea/*
+!.idea/vcs.xml
