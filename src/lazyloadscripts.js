@@ -141,6 +141,18 @@ class lazyLoadScripts
 	 */
 	appendJS(url, callback)
 	{
+		let url_exists = false
+
+		document.querySelectorAll('script').forEach(script => {
+			if (script.src == url) {
+				url_exists = true;
+				return
+			}
+		})
+
+		if (url_exists)
+			return false
+
 		return new Promise(resolve =>
 		{
 			const el = document.createElement('script');
